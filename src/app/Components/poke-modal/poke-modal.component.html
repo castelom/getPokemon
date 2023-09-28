@@ -1,0 +1,7 @@
+<app-spinner [show] = loading [msg] = busyMsg></app-spinner>
+<div *ngIf=!loading>
+    <h1>{{pokemon.name}}</h1>
+    <mat-card>
+        <img src = {{pokemon.url}}/>
+    </mat-card>
+</div>
