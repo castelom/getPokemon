@@ -32,7 +32,7 @@ describe('AppComponent', () => {
       expect(component.title).toEqual('Pokemon');
     });
 
-    fit('should render title', () => {
+    it('should render title', () => {
       component.changePokeSpan("Picachu")
       fixture.detectChanges();
       const compiled = fixture.nativeElement as Document;
