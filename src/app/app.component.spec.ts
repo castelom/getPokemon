@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -10,7 +11,8 @@ describe('AppComponent', () => {
   beforeEach(waitForAsync (() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatToolbarModule
       ],
       declarations: [
         AppComponent
@@ -30,7 +32,7 @@ describe('AppComponent', () => {
       expect(component.title).toEqual('Pokemon');
     });
 
-    it('should render title', () => {
+    fit('should render title', () => {
       component.changePokeSpan("Picachu")
       fixture.detectChanges();
       const compiled = fixture.nativeElement as Document;

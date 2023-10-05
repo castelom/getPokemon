@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Pokemon';
 
+  ngOnInit(): void {
+    console.log("Teste")
+  }
+
   changePokeSpan(newTitle: string): void {
     this.title = newTitle;
   }
