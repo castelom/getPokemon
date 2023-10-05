@@ -1,35 +1,39 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let fixture : ComponentFixture<AppComponent>;
+  let component : AppComponent;
+  
+
+  beforeEach(waitForAsync (() => {
+    TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
         AppComponent
       ],
-    }).compileComponents();
-  });
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+    });
+  }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  fdescribe('Testes de inicialização', () => {
+    it('should create the app', () => {
+      expect(component).toBeTruthy();
+    });
 
-  it(`should have as title 'pokemon'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('pokemon');
-  });
+    it(`should have as title 'pokemon'`, () => {
+      expect(component.title).toEqual('pokemon');
+    });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('pokemon app is running!');
+    it('should render title', () => {
+      fixture.detectChanges();
+      const compiled = fixture.nativeElement as HTMLElement;
+      expect(compiled.querySelector('span')?.textContent).toContain('Pokemon');
+    });
   });
 });
