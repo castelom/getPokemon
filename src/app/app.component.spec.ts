@@ -21,19 +21,20 @@ describe('AppComponent', () => {
     });
   }));
 
-  fdescribe('Testes de inicialização', () => {
+  describe('Testes de inicialização', () => {
     it('should create the app', () => {
       expect(component).toBeTruthy();
     });
 
     it(`should have as title 'pokemon'`, () => {
-      expect(component.title).toEqual('pokemon');
+      expect(component.title).toEqual('Pokemon');
     });
 
     it('should render title', () => {
+      component.changePokeSpan("Picachu")
       fixture.detectChanges();
-      const compiled = fixture.nativeElement as HTMLElement;
-      expect(compiled.querySelector('span')?.textContent).toContain('Pokemon');
+      const compiled = fixture.nativeElement as Document;
+      expect(compiled.querySelector('span')?.textContent).toContain('Picachu');
     });
   });
 });
